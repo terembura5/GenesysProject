@@ -1,0 +1,22 @@
+{
+  "name": "playwright-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "testScript": "npx playwright test",
+    "headedRun": "npx playwright test --headed",
+    "chromeRun": "npx playwright test --project=chromium",
+    "firefoxRun": "npx playwright test --project=firefox"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.8.10"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}
