@@ -20,9 +20,7 @@ test('Test Case 4: iFrame and navigation test', async ({ page }) => {
     await page.getByRole('link', { name: 'Testing ' }).hover();
     await page.locator('#rt-header').getByRole('link', {name: 'Selenium', exact: true }).click();
     await page.getByRole('heading', {name: 'Selenium Tutorial', exact: true}).waitFor();
-    const submitButton = await page.getByRole('button', { name: 'Submit'});
     await page.mouse.wheel(0,4800);
-    await expect(submitButton).toBeVisible();
-    // await expect(page.getByRole('button', {name: 'Join Now'})).toBeVisible();  NOTE: join now button not appearing in every occassion so I've switched to Submit button
+    await expect(page.getByRole('button', {name: 'Join Now'})).toBeVisible({timeout: 20000});
 });
 });

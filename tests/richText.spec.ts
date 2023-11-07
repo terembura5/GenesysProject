@@ -14,10 +14,10 @@ test.describe('Rich text editor', () => {
         await page.getByLabel('Bold').click();
         await editorElement.type('Automation');
         await page.getByLabel('Bold').click();
-        await page.getByLabel('Italic').click();
+        await page.getByLabel('Underline').click();
         await editorElement.type(' Test');
-        await page.getByLabel('Italic').click();
+        await page.getByLabel('Underline').click();
         await editorElement.type(' Example');
         await expect(editorElement).toHaveText("Automation Test Example");
-    })
-})
+    });
+});

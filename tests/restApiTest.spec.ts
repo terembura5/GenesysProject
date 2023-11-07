@@ -4,11 +4,12 @@ import fetch from 'node-fetch';
 
 test.describe('Rest API testing', () => {
     let userList: GetUserResponseModel[];
+    const requestType = 'GET';
     const host = 'https://jsonplaceholder.typicode.com';
     const endpoint = '/users';
 
     test('Test Case 5: name and email collector + assertation of @',async () => {
-        userList = await getUsers(host + endpoint, 'GET');
+        userList = await getUsers(host + endpoint, requestType);
         const nameAndEmailList = userList.map(({name, email}) => ({name, email}));
         nameAndEmailList.forEach(element => {
             console.log(element.name + ' | ' + element.email)
