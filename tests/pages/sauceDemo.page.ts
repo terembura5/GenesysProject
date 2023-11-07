@@ -7,11 +7,11 @@ export default class SauceDemoPage extends BasePage {
         super(page);
     }
 
-    get username(): Promise<Locator>{
+    get username(): Promise<Locator> {
         return this.findLocator('[data-test="username"]');
     }
 
-    get password(): Promise<Locator>{
+    get password(): Promise<Locator> {
         return this.findLocator('[data-test="password"]');
     }
 

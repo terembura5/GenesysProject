@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { GetUserResponseModel } from './resources/restApiModel';
 import fetch from 'node-fetch';
 
@@ -8,10 +8,10 @@ test.describe('Rest API testing', () => {
     const host = 'https://jsonplaceholder.typicode.com';
     const endpoint = '/users';
 
-    test('Test Case 5: name and email collector + assertation of @',async () => {
+    test('Test Case 5: name and email collector + assertation of @', async () => {
         userList = await getUsers(host + endpoint, requestType);
 
-        const nameAndEmailList = userList.map(({name, email}) => ({name, email}));
+        const nameAndEmailList = userList.map(({ name, email }) => ({ name, email }));
         nameAndEmailList.forEach(element => {
             console.log(element.name + ' | ' + element.email)
         });
@@ -20,10 +20,11 @@ test.describe('Rest API testing', () => {
     });
 });
 
-async function getUsers(url: string, method: string): Promise <GetUserResponseModel[] | any>{
+async function getUsers(url: string, method: string): Promise<GetUserResponseModel[]> {
     const requestItems = {
         method: method
     };
-    
-    return await fetch(url, requestItems).then(response => response.json());
+
+    const response = await fetch(url, requestItems).then(response => response.json());
+    return response;
 }

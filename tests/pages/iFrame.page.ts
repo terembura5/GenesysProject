@@ -7,15 +7,15 @@ export default class IFramePage extends BasePage {
         super(page);
     }
 
-    get mainCookiePanel(): Promise<FrameLocator>{
+    get mainCookiePanel(): Promise<FrameLocator> {
         return this.findFrame('internal:role=dialog[name="Privacy Manager window"i]');
     }
 
-    get hiddenImage(): Promise<FrameLocator>{
+    get hiddenImage(): Promise<FrameLocator> {
         return this.findFrame('iframe[name="a077aa5e"]');
     }
 
-    get headerElement(): Promise<FrameLocator>{
+    get headerElement(): Promise<FrameLocator> {
         return this.findLocator('#rt-header');
     }
 }

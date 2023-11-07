@@ -7,15 +7,15 @@ export default class RichTextPage extends BasePage {
         super(page);
     }
 
-    get editor(): Promise<FrameLocator>{
+    get editor(): Promise<FrameLocator> {
         return this.findFrame('iframe[title="Editor\\, ckeditor-4-demo"]');
     }
 
-    get boldButton(): Promise<Locator>{
+    get boldButton(): Promise<Locator> {
         return this.findLabel('Bold');
     }
 
-    get underlineButton(): Promise<Locator>{
+    get underlineButton(): Promise<Locator> {
         return this.findLabel('Underline');
     }
 }

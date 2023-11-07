@@ -1,13 +1,13 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import RichTextPage from './pages/richText.page';
 
-test.beforeEach(async ({page}) => {
+test.beforeEach(async ({ page }) => {
     await page.goto('https://www.onlinehtmleditor.dev');
 });
 
 test.describe('Rich text editor', () => {
 
-    test('Test case 3: text format',async ({page}) => {
+    test('Test case 3: text format', async ({ page }) => {
         const richTextPage = new RichTextPage(page);
         const boldButton = await richTextPage.boldButton;
         const underlineButton = await richTextPage.underlineButton;
