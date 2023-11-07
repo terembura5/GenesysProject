@@ -1,20 +1,20 @@
 export class GetUserResponseModel {
-    id: Number;
-    name: String;
-    username: String;
-    email: String;
+    id: number;
+    name: string;
+    username: string;
+    email: string;
     address: {
-        street: String;
-        suite: String;
-        city: String;
-        zipcode: String;
-        geo?: String;
+        street: string;
+        suite: string;
+        city: string;
+        zipcode: string;
+        geo?: string;
     }
-    phone: String;
-    website: String;
+    phone: string;
+    website: string;
     company: {
-        name: String;
-        catchPhrase: String;
-        bs: String;
+        name: string;
+        catchPhrase: string;
+        bs: string;
     }
 }

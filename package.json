@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "testScript": "npx playwright test",
-    "headedRun": "npx playwright test --headed",
-    "chromeRun": "npx playwright test --project=chromium",
-    "firefoxRun": "npx playwright test --project=firefox"
+    "setup": "npx playwright install",
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:chrome": "npx playwright test --project=chromium",
+    "test:firefox": "npx playwright test --project=firefox"
   },
   "keywords": [],
   "author": "",

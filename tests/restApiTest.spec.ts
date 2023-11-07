@@ -10,10 +10,12 @@ test.describe('Rest API testing', () => {
 
     test('Test Case 5: name and email collector + assertation of @',async () => {
         userList = await getUsers(host + endpoint, requestType);
+
         const nameAndEmailList = userList.map(({name, email}) => ({name, email}));
         nameAndEmailList.forEach(element => {
             console.log(element.name + ' | ' + element.email)
         });
+
         expect(nameAndEmailList[0].email).toContain('@');
     });
 });
@@ -22,5 +24,6 @@ async function getUsers(url: string, method: string): Promise <GetUserResponseMo
     const requestItems = {
         method: method
     };
+    
     return await fetch(url, requestItems).then(response => response.json());
 }
