@@ -10,10 +10,9 @@ test.describe("iFrame and Tab test", () => {
 
     test('Test Case 4: iFrame and navigation test', async ({ page }) => {
         const iFramePage = new IFramePage(page);
-        const cookiePanel = await iFramePage.mainCookiePanel;
 
-        await cookiePanel.getByRole('button', { name: 'Reject All' }).click();
-        await cookiePanel.getByRole('button', { name: 'Reject' }).click();
+        await (await iFramePage.rejectAll).click();
+        await (await iFramePage.reject).click();
 
         const newTabPromise = page.waitForEvent('popup');
 
@@ -32,6 +31,6 @@ test.describe("iFrame and Tab test", () => {
         await page.getByRole('heading', { name: 'Selenium Tutorial', exact: true }).waitFor();
         await page.mouse.wheel(0, 4800);
 
-        await expect(page.getByRole('button', { name: 'Join Now' })).toBeVisible({ timeout: 20000 });
+        await expect(await iFramePage.joinNowButton).toBeVisible({ timeout: 20000 });
     });
 });

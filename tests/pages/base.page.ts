@@ -19,4 +19,8 @@ export default class BasePage {
     public async findLabel(value: string): Promise<Locator> {
         return this.page.getByLabel(value);
     }
+
+    public async getButtonByName(buttonName: string): Promise<Locator> {
+        return this.page.getByRole('button', { name: buttonName })
+    }
 }

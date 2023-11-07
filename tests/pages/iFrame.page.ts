@@ -1,4 +1,4 @@
-import { FrameLocator, Page } from "@playwright/test";
+import { FrameLocator, Locator, Page } from "@playwright/test";
 import BasePage from "./base.page";
 
 export default class IFramePage extends BasePage {
@@ -17,5 +17,21 @@ export default class IFramePage extends BasePage {
 
     get headerElement(): Promise<FrameLocator> {
         return this.findLocator('#rt-header');
+    }
+
+    get rejectAll(): Promise<Locator> {
+        return this.getButtonByName('Reject All');
+    }
+
+    get reject(): Promise<Locator> {
+        return this.getButtonByName('Reject');
+    }
+
+    get moreOptions(): Promise<Locator> {
+        return this.getButtonByName('MORE OPTIONS');
+    }
+
+    get joinNowButton(): Promise<Locator> {
+        return this.getButtonByName('Join Now');
     }
 }
