@@ -18,7 +18,6 @@ test.describe('Sauce Demo page', () => {
         const sauceDemoPage = new SauceDemoPage(page);
 
         await sauceDemoPage.login(userName, password);
-
         await (await (sauceDemoPage.productsHeader)).waitFor({ state: "visible" });
 
         await (await sauceDemoPage.jacket).click();
@@ -34,7 +33,7 @@ test.describe('Sauce Demo page', () => {
 
         await sauceDemoPage.finishPurchase();
 
-        await expect(page.getByRole('heading', { name: 'Thank you for your order!' })).toBeVisible();
+        await expect(await sauceDemoPage.thankYouForPurchaseText).toBeVisible();
     });
 
     test('Test Case 2: Error message + footer element check', async ({ page }) => {
@@ -47,7 +46,7 @@ test.describe('Sauce Demo page', () => {
 
         await demoPage.login(standardUserName, password);
 
-        await (await page.getByText('Products')).waitFor({ state: "visible" });
+        await (page.getByText('Products')).waitFor({ state: "visible" });
 
         await page.mouse.wheel(0, 4000);
 

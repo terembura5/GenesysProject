@@ -11,8 +11,8 @@ test.describe("iFrame and Tab test", () => {
     test('Test Case 4: iFrame and navigation test', async ({ page }) => {
         const iFramePage = new IFramePage(page);
 
-        await (await iFramePage.rejectAll).click();
-        await (await iFramePage.reject).click();
+        await (await iFramePage.getCookieElements('Reject All')).click();
+        await (await iFramePage.getCookieElements('Reject')).click();
 
         const newTabPromise = page.waitForEvent('popup');
 
@@ -26,9 +26,10 @@ test.describe("iFrame and Tab test", () => {
 
         await newTab.close();
 
-        await page.getByRole('link', { name: 'Testing ' }).hover();
-        await (await iFramePage.headerElement).getByRole('link', { name: 'Selenium', exact: true }).click();
-        await page.getByRole('heading', { name: 'Selenium Tutorial', exact: true }).waitFor();
+        await (await iFramePage.testingLink).hover();
+        await (await iFramePage.getHeaderElement('Selenium')).click();
+        await (await iFramePage.seleniumTutorialHeading).waitFor();
+
         await page.mouse.wheel(0, 4800);
 
         await expect(await iFramePage.joinNowButton).toBeVisible({ timeout: 20000 });

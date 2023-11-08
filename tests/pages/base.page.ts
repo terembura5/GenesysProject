@@ -23,4 +23,12 @@ export default class BasePage {
     public async getButtonByName(buttonName: string): Promise<Locator> {
         return this.page.getByRole('button', { name: buttonName })
     }
+
+    public async getLinkByName(linkName: string): Promise<Locator> {
+        return this.page.getByRole('link', { name: linkName })
+    }
+
+    public async getHeadingByName(headingName: string): Promise<Locator> {
+        return this.page.getByRole('heading', { name: headingName, exact: true })
+    }
 }

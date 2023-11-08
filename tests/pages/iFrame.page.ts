@@ -7,7 +7,7 @@ export default class IFramePage extends BasePage {
         super(page);
     }
 
-    get mainCookiePanel(): Promise<FrameLocator> {
+    private get mainCookiePanel(): Promise<FrameLocator> {
         return this.findFrame('internal:role=dialog[name="Privacy Manager window"i]');
     }
 
@@ -19,19 +19,27 @@ export default class IFramePage extends BasePage {
         return this.findLocator('#rt-header');
     }
 
-    get rejectAll(): Promise<Locator> {
-        return this.getButtonByName('Reject All');
-    }
-
-    get reject(): Promise<Locator> {
-        return this.getButtonByName('Reject');
-    }
-
-    get moreOptions(): Promise<Locator> {
-        return this.getButtonByName('MORE OPTIONS');
-    }
-
     get joinNowButton(): Promise<Locator> {
         return this.getButtonByName('Join Now');
+    }
+
+    get testingLink(): Promise<Locator> {
+        return this.getLinkByName('Testing ');
+    }
+
+    get seleniumTutorialHeading(): Promise<Locator> {
+        return this.getHeadingByName('Selenium Tutorial');
+    }
+
+    async getCookieElements(buttonName: string): Promise<Locator> {
+        const cookie = await this.mainCookiePanel;
+        const cookieElement = cookie.getByRole('button', { name: buttonName });
+        return cookieElement;
+    }
+
+    async getHeaderElement(headerName: string): Promise<Locator> {
+        const header = await this.headerElement;
+        const exactHeaderElement = header.getByRole('link', { name: headerName, exact: true });
+        return exactHeaderElement;
     }
 }

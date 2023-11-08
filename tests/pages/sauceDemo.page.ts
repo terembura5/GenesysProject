@@ -68,7 +68,7 @@ export default class SauceDemoPage extends BasePage {
     }
 
     get thankYouForPurchaseText(): Promise<Locator> {
-        return this.findLocator('[class="footer_copy"]');
+        return this.getHeadingByName('Thank you for your order!');
     }
 
     public async login(username: string, passwordInput: string): Promise<void> {
